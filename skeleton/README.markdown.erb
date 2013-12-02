@@ -1,20 +1,57 @@
 # <%= metadata.name %>
 
-[![Build Status](https://travis-ci.org/<%= metadata.author %>/puppet-<%= metadata.name %>.png?branch=master)](https://travis-ci.org/<%= metadata.author %>/puppet-<%= metadata.name %>)
-
 This is the <%= metadata.name %> module.
 
 # Requirements
 
+* Puppetlabs/stdlib
+
 # Installation
 
-  puppet module install <%= metadata.author %>/<%= metadata.name %>
+  puppet module install seattle-biomed/<%= metadata.name %>
 
 # Synopsis
 
+  Install and manage <%= metadata.name %> service.
+
 # Parameters
 
-- *enable*
+- *config_ensure* (Default: 'present')
+- *config_options* (Default: Empty)
+- *package_ensure* (Default: 'true')
+- *service_ensure* (Default: 'running')
+- *service_enable* (Default: 'true')
+
+# Examples
+
+Basic Installation
+
+  include '::<%= metadata.name %>'
+
+Parameterized Installation
+
+  $config_options = {
+    option => value
+  }
+
+  class { '::<%= metadata.name %>':
+    config_ensure  => 'present',
+    config_options => $config_options,
+    package_ensure => 'true',
+    service_ensure => 'running',
+    service_enable => 'true',
+  }
+
+Installation with Hiera
+
+  ---
+  class:  - <%= metadata.name %>
+  <%= metadata.name %>::config::ensure:  'present'
+  <%= metadata.name %>::config::options:
+    option: value
+  <%= metadata.name %>::package::ensure:  'true'
+  <%= metadata.name %>::service::ensure:  'running'
+  <%= metadata.name %>::service::enable:  'true'
 
 # License
 
@@ -25,4 +62,4 @@ This is the <%= metadata.name %> module.
 
 # Support
 
-Please log tickets and issues at our [Projects site](https://github.com/<%= metadata.author %>/<%= metadata.name %>)
+Please log tickets and issues at our [Projects site](https://github.com/seattle-biomed/<%= metadata.name %>)

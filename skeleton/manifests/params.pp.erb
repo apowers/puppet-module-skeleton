@@ -1,10 +1,11 @@
-# == Class <%= metadata.name %>::params
-# This class is meant to be called from <%= metadata.name %>
-# It set variable according to platform
+# == Class: <%= metadata.name %>
+#
+# Full description of class <%= metadata.name %> is in the README.
+#
 class <%= metadata.name %>::params {
-  $pkgname = '<%= metadata.name %>'
-  $conffile = '<%= metadata.name %>/etc/<%= metadata.name %>.conf'
-  $service = $::osfamily ? {
+  $package_name = '<%= metadata.name %>'
+  $config_file  = '<%= metadata.name %>/etc/<%= metadata.name %>.conf'
+  $service_name = $::osfamily ? {
     'Debian' => '<%= metadata.name %>',
     'RedHat' => '<%= metadata.name %>',
     default  => fail('unsupported platform')

@@ -1,0 +1,12 @@
+# == Class: <%= metadata.name %>
+#
+# Full description of class <%= metadata.name %> is in the README.
+#
+class <%= metadata.name %>::package (
+  $ensure = $<%= metadata.name %>::package_ensure
+) {
+  include <%= metadata.name %>::params
+  package { $<%= metadata.name %>::params::package_name:
+    ensure => $ensure,
+  }
+}

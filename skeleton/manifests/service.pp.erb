@@ -1,10 +1,14 @@
-# == Class <%= metadata.name %>::service
-# This class is meant to be called from <%= metadata.name %>
-# It ensure the service is running
-class <%= metadata.name %>::service {
+# == Class: <%= metadata.name %>
+#
+# Full description of class <%= metadata.name %> is in the README.
+#
+class <%= metadata.name %>::service (
+  $ensure = $<%= metadata.name %>::service_ensure
+  $enable = $<%= metadata.name %>::service_enable
+) {
   include <%= metadata.name %>::params
-  service { $<%= metadata.name %>::params::service:
-    ensure => running,
-    enable => true,
+  service { $<%= metadata.name %>::params::service_name:
+    ensure => $ensure,
+    enable => $enable,
   }
 }
