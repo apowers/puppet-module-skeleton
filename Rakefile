@@ -7,6 +7,6 @@ end
 
 task :default do
   puts "This package includes a README.markdown"
-  puts "TLDR; rake install"
+  puts "TLDR: rake install"
   true
 end
