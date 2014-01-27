@@ -5,9 +5,9 @@
 class <%= metadata.name %> (
   $config_ensure  = 'present',
   $config_options = hash([]),
-  $package_ensure = 'true',
+  $package_ensure = true,
   $service_ensure = 'running',
-  $service_enable = 'true',
+  $service_enable = true,
 ) {
   anchor { "${module_name}::begin": } ->
   class {"${module_name}::package": } ->
