@@ -1,0 +1,18 @@
+# == Class: <%= metadata.name %>
+#
+# Full description of class <%= metadata.name %> is in the README.
+#
+class <%= metadata.name %>::params {
+  $package_name = $::osfamily ? {
+    'Debian' => '<%= metadata.name %>',
+    default  => fail('Unsupported Platform')
+  }
+  $config_file  = $::osfamily ? {
+    'Debian' => '/etc/<%= metadata.name %>/<%= metadata.name %>.conf',
+    default  => fail('Unsupported Platform')
+  }
+  $service_name = $::osfamily ? {
+    'Debian' => '<%= metadata.name %>',
+    default  => fail('Unsupported Platform')
+  }
+}

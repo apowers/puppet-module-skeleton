@@ -8,10 +8,13 @@ class <%= metadata.name %> (
   $package_ensure = 'installed',
   $service_ensure = 'running',
   $service_enable = true,
-) {
-  anchor { "${module_name}::begin": } ->
-  class {"${module_name}::package": } ->
-  class {"${module_name}::config": } ~>
-  class {"${module_name}::service": } ~>
-  anchor { "${module_name}::end": }
+  $service_name   = $<%= metadata.name %>::defaults::service_name,
+  $package_name   = $<%= metadata.name %>::defaults::package_name,
+  $config_file    = $<%= metadata.name %>::defaults::config_file,
+) inherits <%= metadata.name %>::defaults {
+  anchor { '<%= metadata.name %>::begin':   } ->
+  class  { '<%= metadata.name %>::package': } ->
+  class  { '<%= metadata.name %>::config':  } ~>
+  class  { '<%= metadata.name %>::service': } ->
+  anchor { '<%= metadata.name %>::end': }
 }
