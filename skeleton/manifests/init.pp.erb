@@ -10,6 +10,7 @@ class <%= metadata.name %> (
   $service_enable = true,
   $service_name   = $<%= metadata.name %>::defaults::service_name,
   $package_name   = $<%= metadata.name %>::defaults::package_name,
+  $config_dir     = $<%= metadata.name %>::defaults::config_directory,
   $config_file    = $<%= metadata.name %>::defaults::config_file,
 ) inherits <%= metadata.name %>::defaults {
   anchor { '<%= metadata.name %>::begin':   } ->

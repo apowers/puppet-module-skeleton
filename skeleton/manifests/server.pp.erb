@@ -1,0 +1,20 @@
+# == Class: <%= metadata.name %>
+#
+# Full description of class <%= metadata.name %> is in the README.
+#
+class <%= metadata.name %>::server (
+  $config_ensure  = 'present',
+  $config_options = hash([]),
+  $package_ensure = 'installed',
+  $service_ensure = 'running',
+  $service_enable = true,
+  $service_name   = $<%= metadata.name %>::defaults::server_service_name,
+  $package_name   = $<%= metadata.name %>::defaults::server_package_name,
+  $config_file    = $<%= metadata.name %>::defaults::server_config_file,
+) inherits <%= metadata.name %>::defaults {
+  anchor { '<%= metadata.name %>::server::begin':   } ->
+  class  { '<%= metadata.name %>::server::package': } ->
+  class  { '<%= metadata.name %>::server::config':  } ~>
+  class  { '<%= metadata.name %>::server::service': } ->
+  anchor { '<%= metadata.name %>::server::end': }
+}
