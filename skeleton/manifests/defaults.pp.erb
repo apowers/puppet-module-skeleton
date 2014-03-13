@@ -2,16 +2,32 @@
 #
 # Full description of class <%= metadata.name %> is in the README.
 #
-class <%= metadata.name %>::params {
+class <%= metadata.name %>::defaults {
+  $config_directory  = $::osfamily ? {
+    'Debian' => '/etc/<%= metadata.name %>',
+    default  => fail('Unsupported Platform')
+  }
   $package_name = $::osfamily ? {
     'Debian' => '<%= metadata.name %>',
     default  => fail('Unsupported Platform')
   }
   $config_file  = $::osfamily ? {
-    'Debian' => '/etc/<%= metadata.name %>/<%= metadata.name %>.conf',
+    'Debian' => '<%= metadata.name %>.conf',
     default  => fail('Unsupported Platform')
   }
   $service_name = $::osfamily ? {
+    'Debian' => '<%= metadata.name %>',
+    default  => fail('Unsupported Platform')
+  }
+  $server_package_name = $::osfamily ? {
+    'Debian' => '<%= metadata.name %>',
+    default  => fail('Unsupported Platform')
+  }
+  $server_config_file  = $::osfamily ? {
+    'Debian' => '<%= metadata.name %>.conf',
+    default  => fail('Unsupported Platform')
+  }
+  $server_service_name = $::osfamily ? {
     'Debian' => '<%= metadata.name %>',
     default  => fail('Unsupported Platform')
   }

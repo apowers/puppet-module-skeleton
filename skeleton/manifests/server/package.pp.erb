@@ -3,8 +3,8 @@
 # Full description of class <%= metadata.name %> is in the README.
 #
 class <%= metadata.name %>::package (
-  $ensure       = $<%= metadata.name %>::package_ensure,
-  $package_name = $<%= metadata.name %>::package_name,
+  $ensure       = $<%= metadata.name %>::server::package_ensure,
+  $package_name = $<%= metadata.name %>::server::package_name,
 ) {
   package { $package_name:
     ensure => $ensure,

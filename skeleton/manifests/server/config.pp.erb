@@ -3,10 +3,10 @@
 # Full description of class <%= metadata.name %> is in the README.
 #
 class <%= metadata.name %>::config (
-  $ensure      = $<%= metadata.name %>::config_ensure,
-  $options     = $<%= metadata.name %>::config_options,
-  $config_dir  = $<%= metadata.name %>::config_dir,
-  $config_file = $<%= metadata.name %>::config_file,
+  $ensure      = $<%= metadata.name %>::server::config_ensure,
+  $options     = $<%= metadata.name %>::server::config_options,
+  $config_dir  = $<%= metadata.name %>::server::config_dir,
+  $config_file = $<%= metadata.name %>::server::config_file,
 ) {
   file { "${config_dir}/${config_file}":
     ensure  => $ensure,
