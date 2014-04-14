@@ -1,0 +1,25 @@
+# This file is managed by Puppet class <%= @name %>
+<%- @assignment_character ? d = @assignment_character : d = ' = ' -%>
+
+<%- @merged_options.each do |k, v| -%>
+<%- if v.is_a?(Hash) -%>
+<%= k %>
+<%- v.sort.each do |key, value| -%>
+    <%- if value.is_a?(Array) -%>
+    <%- value.each do |a| -%>
+    <%= key %><%= d %><%= a %>
+    <%- end -%>
+    <%- else -%>
+    <%= key %><%= d %><%= value %>
+    <%- end -%>
+<%- end -%>
+<%- else -%>
+<%- if v.is_a?(Array) -%>
+<%- v.each do |a| -%>
+<%= k %><%= d %><%= a %>
+<%- end -%>
+<%- else -%>
+<%= k %><%= d %><%= v %>
+<%- end -%>
+<%- end -%>
+<%- end -%>

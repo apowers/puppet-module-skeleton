@@ -1,8 +1,8 @@
-# == Class: <%= metadata.name %>
+# == Class: <%= metadata.name %>::server::service
 #
 # Full description of class <%= metadata.name %> is in the README.
 #
-class <%= metadata.name %>::service (
+class <%= metadata.name %>::server::service (
   $ensure       = $<%= metadata.name %>::server::service_ensure,
   $enable       = $<%= metadata.name %>::server::service_enable,
   $service_name = $<%= metadata.name %>::server::service_name,

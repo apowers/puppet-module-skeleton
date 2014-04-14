@@ -1,8 +1,8 @@
-# == Class: <%= metadata.name %>
+# == Class: <%= metadata.name %>::server::package
 #
 # Full description of class <%= metadata.name %> is in the README.
 #
-class <%= metadata.name %>::package (
+class <%= metadata.name %>::server::package (
   $ensure       = $<%= metadata.name %>::server::package_ensure,
   $package_name = $<%= metadata.name %>::server::package_name,
 ) {
