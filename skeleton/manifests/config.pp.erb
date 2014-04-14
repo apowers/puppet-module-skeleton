@@ -1,4 +1,4 @@
-# == Class: <%= metadata.name %>
+# == Class: <%= metadata.name %>::config
 #
 # Full description of class <%= metadata.name %> is in the README.
 #
@@ -8,10 +8,13 @@ class <%= metadata.name %>::config (
   $config_dir  = $<%= metadata.name %>::config_dir,
   $config_file = $<%= metadata.name %>::config_file,
 ) {
+  $merged_options = merge($<%= metadata.name %>::defaults::default_options, $options)
+  $assignment_character = ' = '
+
   file { "${config_dir}/${config_file}":
     ensure  => $ensure,
     mode    => '0440',
-    content => template('<%= metadata.name %>/<%= metadata.name %>.conf.erb')
+    content => template('<%= metadata.name %>/config.erb')
   }
 }
 

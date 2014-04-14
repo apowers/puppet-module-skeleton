@@ -1,4 +1,4 @@
-# == Class: <%= metadata.name %>
+# == Class: <%= metadata.name %>::defaults
 #
 # Full description of class <%= metadata.name %> is in the README.
 #
@@ -15,6 +15,10 @@ class <%= metadata.name %>::defaults {
     'Debian' => '<%= metadata.name %>.conf',
     default  => fail('Unsupported Platform')
   }
+
+  $default_options = {
+  }
+
   $service_name = $::osfamily ? {
     'Debian' => '<%= metadata.name %>',
     default  => fail('Unsupported Platform')
@@ -31,4 +35,8 @@ class <%= metadata.name %>::defaults {
     'Debian' => '<%= metadata.name %>',
     default  => fail('Unsupported Platform')
   }
+
+  $default_server_options = {
+  }
+
 }

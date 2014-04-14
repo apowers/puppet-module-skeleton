@@ -1,10 +1,11 @@
-# == Class: <%= metadata.name %>
+# == Class: <%= metadata.name %>::server
 #
+# This class installs and configures the <%= metadata.name %> server.
 # Full description of class <%= metadata.name %> is in the README.
 #
 class <%= metadata.name %>::server (
   $config_ensure  = 'present',
-  $config_options = hash([]),
+  $config_options = {},
   $package_ensure = 'installed',
   $service_ensure = 'running',
   $service_enable = true,
