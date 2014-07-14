@@ -3,7 +3,7 @@
 # Full description of class <%= metadata.name %> is in the README.
 #
 class <%= metadata.name %>::defaults {
-  $config_directory  = $::osfamily ? {
+  $config_path  = $::osfamily ? {
     'Debian' => '/etc/<%= metadata.name %>',
     default  => fail('Unsupported Platform')
   }
