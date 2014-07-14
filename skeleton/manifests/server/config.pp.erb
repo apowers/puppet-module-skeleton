@@ -5,13 +5,13 @@
 class <%= metadata.name %>::server::config (
   $ensure      = $<%= metadata.name %>::server::config_ensure,
   $options     = $<%= metadata.name %>::server::config_options,
-  $config_dir  = $<%= metadata.name %>::server::config_dir,
+  $config_path  = $<%= metadata.name %>::server::config_path,
   $config_file = $<%= metadata.name %>::server::config_file,
 ) {
   $merged_options = merge($<%= metadata.name %>::defaults::default_server_options, $options)
   $assignment_character = ' = '
 
-  file { "${config_dir}/${config_file}":
+  file { "${config_path}/${config_file}":
     ensure  => $ensure,
     mode    => '0440',
     content => template('<%= metadata.name %>/config.erb')
