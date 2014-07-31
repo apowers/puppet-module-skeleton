@@ -1,11 +1,5 @@
-*~
-*#
-.#*
-*.pyc
-*.lock
-*.swp
-.rbenv-version
-.tmp/
-.vagrant*
-.DS_Store
-
+.*.sw?
+pkg
+spec/fixtures
+.rspec_system
+.vagrant
