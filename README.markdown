@@ -35,7 +35,7 @@ This will not replace the files that comes with the puppet module tool, but pupp
 As we don't want to have our .git files and this README in our skeleton, we
 export it like this:
 
-    git clone https://github.com/spiette/puppet-module-skeleton 
+    git clone https://github.com/apowers/puppet-module-skeleton 
     cd puppet-module-skeleton
     rake install
 
